@@ -1,0 +1,28 @@
+3. 改写1.4节中的程序，求1~100中能被6整除的所有整数的和，并在编程环境中验证该程序的运行结果。
+
+```c
+/* prog1_2-sumOfEven.c:
+   Calculate the sum of all even numbers from 1 to 100
+*/
+#include <stdio.h>
+int main(void) {// Start of program
+    // The sum used to store the result, should be initialized to 0
+    int sum=0;
+    // The loop counter variable
+    int i;
+    // Loop from 1 to 100
+    for (i=1; i<=100; i++) {
+        if(i%2 == 0)
+        {
+            // If i is even, add it to the sum
+            sum += i;
+        }
+    }
+    // Print the result
+    printf("%d\n", sum);
+    return 0;
+} // End of program
+```
+
+- 根据上一题中修改流程图的思路，将1.4节中的程序的for循环中的条件分支语句的**判断条件**由 `i%2 == 0` 修改为 `i%6 == 0` 即可
+- 在编译链接后，执行程序的结果为：816
