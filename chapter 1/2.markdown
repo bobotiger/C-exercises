@@ -1,7 +1,7 @@
 2. 改写1.4节中的流程图1.2，求1~100中能被6整除的所有整数的和。
 
-    ![alt text](../sumOfEven.png)
+    ![alt text](./sumOfEven.png)
 
 - 流程图1.2为计算1~100中能被2整除的所有整数和，因此，仅需将分支判定中的条件修改为 i % 6 == 0，即流程图可修改为如下所示
 
-    ![alt text](../sumOfModSix.png)
+    ![alt text](./sumOfModSix.png)
