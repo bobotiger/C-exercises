@@ -1,0 +1,37 @@
+# 练习 2-9
+- 整数四则运算：输入2个正整数， 计算并输出它们的和、差、积、商。试编写相应程序
+
+```c
+#include <stdio.h>
+int main(void){
+    
+    int num1;    
+    int num2;
+    printf("Please input two integers: ");
+    scanf("%d %d", &num1, &num2);
+    
+    printf("%d + %d = %d\n", num1, num2, num1 + num2);
+
+    printf("%d - %d = %d\n", num1, num2, num1 - num2);
+
+    printf("%d * %d = %d\n", num1, num2, num1 * num2);
+
+    if(num2 != 0){
+        printf("%d / %d = %d\n", num1, num2, num1 / num2);
+        printf("%d %% %d = %d\n", num1, num2, num1 % num2);
+    }else{
+        printf("Division and modulus by zero is undefined.\n");
+    }
+
+    return 0;
+}
+```
+- 执行程序的输入和输出
+```shell
+Please input two integers: 100 23
+100 + 23 = 123
+100 - 23 = 77
+100 * 23 = 2300
+100 / 23 = 4
+100 % 23 = 8
+```

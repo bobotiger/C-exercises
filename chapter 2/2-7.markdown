@@ -1,0 +1,62 @@
+# 练习 2-7
+- 输入提示和输入语句的顺序应该如何安排？例 2-5中， `scanf("%lf%lf%d"， &initial, &factor, &day);` 能改写为 `scanf("%lf%d%lf"， &initial, &factor, &day);` 吗？为什么？能改写为 `scanf("%lf%d%lf"， &initial, &day, &factor);` 吗？如果可以，其对应的输入数据是什么？
+
+- 由于`scanf()`函数的格式化字符串中的格式符需要与之后的变量地址列表中的变量类型顺序一致，否则会误导`scanf()`读取用户输入的数据
+  - 例如用户输入`1.0 0.01 365`时，而`scanf()`的格式化串中的格式符为`"%lf%d%lf"`，
+    - 这时`scanf()`会首先读取一个double类型数据`1.0`，遇到空格时，确认第一个数据读取结束，
+    - 接着读取一个int类型，然而读取第一个`0`后，遇到了小数点`.`时, `scanf()`会认为读取结束，即读取了一个0值
+    - 接下来读取一个double类型，此时`scanf()`会读取`.01`作为第3个值，而之后的`365`则会被视为第4个数据，由后续的scanf读取获得
+
+- 编写一个验证以上内容的程序
+```c
+#include <stdio.h>
+int main(void){
+    
+    double initial;
+    double factor;
+    double result;
+    int day;
+
+    scanf("%lf%d%lf", &initial, &factor, &day);
+    printf("%lf %lf %d\n", initial, factor, day);
+    // 验证此时day中确实存入的0.01转换为int类型的结果
+    printf("%d\n", 0.01);
+
+    // 验证此时scanf会将剩余的365作为一个整型数到day中
+    scanf("%d", &day);
+    printf("%d\n", day);
+    return 0;
+}
+```
+
+- 程序执行的输入和输出
+```shell
+1.0 0.01 365
+1.000000 0.000000 1202590843
+1202590843
+365
+```
+- 显然 `scanf("%lf%lf%d"， &initial, &factor, &day);` 不能改写为 `scanf("%lf%d%lf"， &initial, &factor, &day);`
+
+- `scanf("%lf%lf%d"， &initial, &factor, &day);` 能改写为 `scanf("%lf%d%lf"， &initial, &day, &factor);` 此时在输入数据时，也要保持与格式符类型一致，可以输入`1.0 365 0.01`
+
+- 验证程序
+```c
+#include <stdio.h>
+int main(void){
+    
+    double initial;
+    double factor;
+    double result;
+    int day;
+
+    scanf("%lf%d%lf", &initial, &day, &factor);
+    printf("%lf %lf %d\n", initial, factor, day);    
+    return 0;
+}
+```
+- 程序执行的输入和输出
+```shell
+1.0 365 0.01
+1.000000 0.010000 365
+```

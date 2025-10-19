@@ -1,0 +1,45 @@
+# 练习 2-10
+- 计算分段函数(判断x是否不为0)：输入x，计算并输出下列分段函数f(x)的值(保留1为小数)。试编写相应程序。
+$$
+y=f(x)=
+\begin{cases}
+\frac{1}{x},\quad x \neq 0\\
+0, \quad x = 0
+\end{cases}
+\tag{1}
+$$
+
+- 编写程序
+```c
+#include <stdio.h>
+int main(void){
+    
+    double x;
+    double y;
+    printf("Please enter the value of x: ");
+    scanf("%lf", &x);
+
+    if (x == 0){
+        y = 0;
+    }else{
+        y = 1/x;
+    }
+
+    printf("y = f(x) = %.1f\n", y);
+    return 0;
+}
+```
+> 注意：
+> 
+> `scanf()`函数在输入double类型数据时，需使用`%lf`格式符，在输入float类型数据时，需使用`%f`格式符
+> 
+> `printf()`函数无论输出double类型还是float类型的数据时，都使用`%f`格式符
+
+- 执行程序的输入和输出
+```shell
+Please enter the value of x: 2
+y = f(x) = 0.5
+
+Please enter the value of x: 0
+y = f(x) = 0.0
+```

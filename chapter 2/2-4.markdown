@@ -1,0 +1,39 @@
+# 练习 2-4 
+- 温度转换：求华氏温度$150^{。}F$对应的摄氏温度(计算公式同例2-3)。试编写相应程序。
+
+```c
+例 2-3
+/* prog2_3-fahrenheitToCelsius.c:
+   A simple C program to convert Fahrenheit to Celsius
+*/
+#include <stdio.h>
+int main(void){
+    // Variable declaration and initialization
+    //  data_type variable_name = value;
+    //  Example:
+    //      int : data type for integer
+    //      fahrenheit : variable name
+    //      = : assignment operator
+    //      100 : integer literal
+    int fahrenheit = 100;
+    // variable declaration
+    //  data_type variable_name;
+    int celsius;
+    // assignment expression and arithmetic expression
+    //  arithmetic expression: an expression that performs arithmetic operations
+    //      e.g. +, -, *, /, %
+    //  assignment expression: an expression that assigns a value to a variable 
+    //      e.g. variable = expression;
+    celsius = 5 * (fahrenheit - 32) / 9;
+    // formatted output
+    //  printf("format string", argument1, argument2, ...);
+    //      format string may contain format specifiers, e.g. %d, %f
+    //          %d : format specifier for integer
+    //          %f : format specifier for floating-point number
+
+    printf("Fahrenheit %d is Celsius %d\n", fahrenheit, celsius);
+    return 0;
+}
+```
+
+- 将例 2-3 中的`fahrenheit`变量的声明及初始化语句中的 100 修改为 150 即可；

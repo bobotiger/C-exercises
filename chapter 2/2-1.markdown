@@ -1,0 +1,15 @@
+# 练习 2-1 输出短语(Programming in C is fun!)
+- 在屏幕上显示一个短句 "Programming in C is fun!"。试编写相应程序。
+
+- printf函数的非格式化输出，直接将要输出的字符串作为printf函数的参数传入即可；
+
+```c
+#include <stdio.h>
+int main(void){
+    printf("Programming in C is fun!\n");
+    return 0;
+}
+```
+
+
+

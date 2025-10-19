@@ -1,0 +1,41 @@
+# 练习 2-11
+- 计算分段函数(判断x是否小于0)：输入x，计算并输出下列分段函数f(x)的值(保留2位小数)。 可包含头文件math.h，并调用sqrt()函数求平方根， 调用pow()函数求幂。试编写相应程序。
+$$
+y=f(x)=
+\begin{cases}
+(x+1)^2+2x+\frac{1}{x},\quad x \lt 0\\
+\sqrt{x}, \quad x \geq 0
+\end{cases}
+\tag{1}
+$$
+
+- 编写程序
+```c
+#include <stdio.h>
+#include <math.h>
+int main(void){
+    
+    double x;
+    double y;
+    printf("Please enter the value of x: ");
+    scanf("%lf", &x);
+
+    if (x < 0){
+        y = pow(x+1, 2) + 2*x + 1/x;
+    }else{
+        y = sqrt(x);
+    }
+
+    printf("y = f(x) = %.2f\n", y);
+    return 0;
+}
+```
+
+- 执行程序的输入和输出
+```shell
+Please enter the value of x: 2
+y = f(x) = 1.41
+
+Please enter the value of x: -2
+y = f(x) = -3.50
+```

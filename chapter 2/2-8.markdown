@@ -1,0 +1,44 @@
+# 练习 2-8 
+- 计算摄氏温度：输入华氏温度，输出对应的摄氏温度， 计算公式同例2-3。试编写相应程序。
+
+```c
+例 2-3
+/* prog2_3-fahrenheitToCelsius.c:
+   A simple C program to convert Fahrenheit to Celsius
+*/
+#include <stdio.h>
+int main(void){
+    
+    int fahrenheit = 100;    
+    int celsius;
+   
+    celsius = 5 * (fahrenheit - 32) / 9;   
+
+    printf("Fahrenheit %d is Celsius %d\n", fahrenheit, celsius);
+    return 0;
+}
+```
+
+- 本练习要求输入华氏温度值，因此需将例2-3 的`int fahrenheit = 100;` 替换为无初始化的变量声明`int fahrenheit;`，然后通过`scanf()`函数在执行是输入`fahrenheit`变量的值；
+
+```c
+#include <stdio.h>
+int main(void){
+    
+    int fahrenheit;    
+    int celsius;
+    printf("Please input the value of fahrenheit: ");
+    scanf("%d", &fahrenheit);
+    celsius = 5 * (fahrenheit - 32) / 9;   
+
+    printf("Fahrenheit %d is Celsius %d\n", fahrenheit, celsius);
+    return 0;
+}
+```
+
+- 执行程序的输入和输出
+```shell
+Please input the value of fahrenheit: 150
+Fahrenheit 150 is Celsius 65
+```
+

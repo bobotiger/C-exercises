@@ -1,0 +1,32 @@
+# 练习 2-2 
+- 下列语句的运行结果是什么？与例2-2的运行结果有何不同？为什么？
+```c
+printf("Programming is fun. And Programming in C is even more fun!\n");
+``` 
+
+- 输出结果
+```shell
+Programming is fun. And Programming in C is even more fun!
+
+```
+
+```c 
+例 2-2
+#include <stdio.h>
+int main(void){
+    printf("Programming is fun. \n");
+    printf("And programming in C is even more fun!\n");
+    return 0;
+}
+```
+
+- 例 2-2 输出结果
+```shell
+Programming is fun. 
+And Programming in C is even more fun!
+
+```
+
+- 区别
+  - 例 2-2 输出2行内容，因为每一个`printf()`函数输出的字符串最后包含'\n', 即将光标置于下一行开始，下一个`printf()`会在新的一行开始输出内容；
+  - 练习 2-2 中只有一个`printf()`函数，且输出的字符串中只包含一个'\n'，因此只输出一行内容；
